@@ -360,3 +360,7 @@ Logic: Strip whitespace, collapse multiple spaces, empty → NULL
 - **Missing Value Strategy:** Flagged for review, not removed
 - **Analysis Sections:** 11 comprehensive sections covering all aspects
 
+---
+## Project Documentation
+
+A brief documentation about what we did in the pipeline and how we strategize and planed for the entire project. All the discussion and planned deliverables done in spring 1, are there present in project_documentation.pdf

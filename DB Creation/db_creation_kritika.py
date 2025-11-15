@@ -1,16 +1,7 @@
-"""
-FINAL FIXED retail_etl_pipeline.py
-All FK/PK/UNIQUE errors resolved.
-"""
-
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
 from datetime import datetime
-
-# -------------------------------------------------------------------
-# 1. Helper functions
-# -------------------------------------------------------------------
 
 def parse_mixed_date(series: pd.Series) -> pd.Series:
     s = series.astype(str)
@@ -31,10 +22,6 @@ def safe_int_str(series: pd.Series) -> pd.Series:
     return series.astype("Int64").astype(str)
 
 
-# -------------------------------------------------------------------
-# 2. Load raw data
-# -------------------------------------------------------------------
-
 CSV_PATH = "/kaggle/working/good_data.csv"
 DB_URL = "sqlite:///retail.db"
 
@@ -44,10 +31,6 @@ raw = pd.read_csv(CSV_PATH)
 raw["tx_date"] = parse_mixed_date(raw["Date"])
 raw["customer_id"] = safe_int_str(raw["Customer_ID"])
 raw["transaction_id"] = safe_int_str(raw["Transaction_ID"])
-
-# -------------------------------------------------------------------
-# 3. BUILD NORMALIZED TABLES
-# -------------------------------------------------------------------
 
 def build_customer_master(df):
     g = df.dropna(subset=["customer_id"]).groupby("customer_id")
@@ -75,7 +58,6 @@ def build_customer_master(df):
     cm["age"] = cm["age"].astype("Int64")
     cm["income"] = pd.to_numeric(cm["income"], errors="coerce")
 
-    # CLEAN duplicated keys
     cm = cm.drop_duplicates(subset=["customer_id"])
 
     return cm
@@ -141,7 +123,6 @@ def build_sales_transactions(df):
         "data_quality_flag","reject_reason"
     ]]
 
-    # CLEAN null + duplicate transaction IDs
     st_df = st_df.dropna(subset=["transaction_id"])
     st_df = st_df[st_df["transaction_id"] != "<NA>"]
     st_df = st_df.drop_duplicates(subset=["transaction_id"])
@@ -209,10 +190,6 @@ def build_loyalty_transactions(st_df):
     ]]
 
 
-# -------------------------------------------------------------------
-# 4. Build all DataFrames
-# -------------------------------------------------------------------
-
 print("🔹 Building normalized tables...")
 
 customer_master_df = build_customer_master(raw)
@@ -220,10 +197,6 @@ product_master_df = build_product_master(raw)
 sales_transactions_df = build_sales_transactions(raw)
 customer_analytics_df = build_customer_analytics(sales_transactions_df)
 loyalty_transactions_df = build_loyalty_transactions(sales_transactions_df)
-
-# -------------------------------------------------------------------
-# 5. CREATE TABLES
-# -------------------------------------------------------------------
 
 engine = create_engine(DB_URL)
 
@@ -330,14 +303,10 @@ DDL = [
 
 print("🔹 Creating database schema...")
 with engine.begin() as conn:
-    conn.exec_driver_sql("PRAGMA foreign_keys = OFF;")   # 🔥 FIX
+    conn.exec_driver_sql("PRAGMA foreign_keys = OFF;")
     for stmt in DDL:
         conn.exec_driver_sql(stmt)
-    conn.exec_driver_sql("PRAGMA foreign_keys = ON;")    # 🔥 RE-ENABLE
-
-# -------------------------------------------------------------------
-# 6. LOAD DATA
-# -------------------------------------------------------------------
+    conn.exec_driver_sql("PRAGMA foreign_keys = ON;")
 
 print("🔹 Loading data into DB...")
 
