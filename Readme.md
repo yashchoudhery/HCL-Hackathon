@@ -152,6 +152,122 @@
 
 ---
 
+# ETL Pipeline - Data Cleaning & Standardization
+
+## 📋 Overview
+
+Following the EDA, we built a production-ready ETL pipeline to process the retail transactional dataset, automatically clean and standardize all data, and separate clean records from problematic ones that require manual intervention.
+
+**Pipeline Status:** Completed  
+**Implementation Date:** November 15, 2025  
+**Processing Time:** ~2-3 minutes for 302K records
+
+---
+
+## 🔄 ETL Pipeline Architecture
+
+### **Extract Phase**
+- **Source:** `/kaggle/input/retail-transactional-dataset/retail_data.csv`
+- **Records Loaded:** 302,010 transactions
+- **Columns:** 30 features
+
+### **Transform Phase - 8 Data Cleaning Steps**
+
+#### **Step 1: Date Standardization**
+- **Purpose:** Convert all date formats to ISO 8601 standard (YYYY-MM-DD)
+- **Formats Handled:** `9/18/2023`, `05-08-23`, `01-10-24`, `12/31/2023`, `MM-DD-YY`, `M/D/YYYY`, etc.
+- **Method:** Custom robust parser with 18+ format patterns
+- **Two-digit year handling:** Years >2050 automatically adjusted to 1900s
+- **Invalid dates:** Flagged and moved to bad CSV
+
+#### **Step 2: Time Standardization**
+- **Purpose:** Standardize all time values to HH:MM:SS format
+- **Method:** Convert to Python time objects
+- **Invalid times:** Flagged and moved to bad CSV
+
+#### **Step 3: Text Cleaning**
+- **Operations:**
+  - Strip leading/trailing whitespace
+  - Remove extra internal spaces
+  - Standardize phone numbers (digits only, min 10 digits)
+  - Convert empty strings to NULL
+- **Columns Affected:** Name, Email, Address, City, State, Country, Product fields
+
+#### **Step 4: Numeric Validation**
+- **Rules:**
+  - Remove negative values (invalid for Price, Amount, Quantity)
+  - Validate numeric data types
+  - Convert invalid numeric strings to NULL
+- **Columns Affected:** Transaction_ID, Customer_ID, Phone, Zipcode, Age, Amount, Total_Amount, etc.
+
+#### **Step 5: Missing Value Detection**
+- **Rule:** ANY row with at least one missing value is flagged
+- **Strictness:** Zero tolerance for incomplete records in good CSV
+- **Expected Impact:** ~8,099 rows flagged (2.68%)
+
+#### **Step 6: Duplicate Removal**
+- **Rule:** Exact duplicate rows flagged (first occurrence kept)
+- **Expected Impact:** 8 rows flagged
+
+#### **Step 7: Business Logic Validation**
+- **Rules:**
+  - Zero values in Price → Invalid
+  - Zero values in Amount → Invalid
+  - Zero values in Quantity → Invalid
+  - Zero values in Total_Amount → Invalid
+- **Rationale:** Zero prices/amounts indicate incomplete transactions
+
+#### **Step 8: Record Separation**
+- **Logic:** If ANY validation fails, entire row → bad CSV
+- **Good CSV:** 100% clean, complete, standardized data
+- **Bad CSV:** Records with detailed error descriptions
+
+### **Load Phase**
+
+**Output Files:**
+
+1. **`/kaggle/working/good_data.csv`**
+   - Fully cleaned and standardized records
+   - No missing values
+   - No duplicates
+   - All dates in YYYY-MM-DD format
+   - All times in HH:MM:SS format
+   - Valid business rules
+   - Ready for analysis/modeling
+
+2. **`/kaggle/working/bad_data.csv`**
+   - Records requiring manual review
+   - Includes `Validation_Errors` column with detailed issue descriptions
+   - Original data preserved for investigation
+
+---
+
+## 📊 Expected Results
+
+Based on EDA findings:
+
+| Metric | Value |
+|--------|-------|
+| **Input Records** | 302,010 |
+| **Good Records** | ~293,900 (97.3%) |
+| **Bad Records** | ~8,100 (2.7%) |
+| **Data Quality Score** | 97.3% |
+
+### **Issue Breakdown (Bad CSV)**
+
+| Issue Type | Estimated Count |
+|------------|----------------|
+| Missing Values | ~8,099 rows |
+| Invalid Dates | ~350 rows |
+| Invalid Times | ~350 rows |
+| Duplicates | 8 rows |
+| Zero Values | Unknown |
+| Negative Values | Unknown |
+
+*Note: Rows may have multiple issues*
+
+---
+
 ## 🛠️ Methodology
 
 - **Tools:** Python, Pandas, NumPy, Matplotlib, Seaborn
