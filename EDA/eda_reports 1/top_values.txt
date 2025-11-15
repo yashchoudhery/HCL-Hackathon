@@ -1,0 +1,333 @@
+--- id ---
+id
+1         1
+201235    1
+201242    1
+201241    1
+201240    1
+201239    1
+201238    1
+201237    1
+201234    1
+201244    1
+
+--- Transaction_ID ---
+Transaction_ID
+6145934.0    4
+5459500.0    3
+2383573.0    3
+4234271.0    3
+4468912.0    3
+1998819.0    3
+4973479.0    3
+3063906.0    3
+2332502.0    3
+2433028.0    3
+
+--- Customer_ID ---
+Customer_ID
+47382.0    13
+49274.0    13
+60341.0    13
+99355.0    13
+31185.0    12
+62540.0    12
+49587.0    12
+90983.0    12
+93550.0    12
+76930.0    12
+
+--- Name ---
+Name
+Michael Smith        141
+Michael Johnson      110
+Michael Jones         99
+Michael Williams      91
+Christopher Smith     90
+Jennifer Smith        89
+Robert Smith          87
+James Smith           86
+John Smith            82
+David Smith           78
+
+--- Email ---
+Email
+Michael59@gmail.com    92
+Michael95@gmail.com    91
+Michael17@gmail.com    88
+Michael39@gmail.com    85
+Michael50@gmail.com    83
+Michael58@gmail.com    83
+Michael55@gmail.com    83
+Michael40@gmail.com    82
+Michael90@gmail.com    81
+Michael56@gmail.com    81
+
+--- Phone ---
+Phone
+8.008213e+09    2
+8.362994e+09    2
+6.251614e+09    2
+6.923209e+09    2
+9.492418e+09    2
+1.059583e+09    2
+8.316968e+09    2
+2.614946e+09    2
+9.984020e+09    2
+7.241281e+09    2
+
+--- Address ---
+Address
+29378 Benjamin Parks Suite 015    2
+380 Lynn Row Apt. 991             2
+0559 Shelly Ports Suite 868       2
+61922 Donald Key Apt. 770         2
+989 Monica Ridges                 2
+10736 Alyssa Well Suite 468       2
+021 Turner Loaf Suite 118         2
+85641 Andrea Oval Apt. 268        2
+685 Raymond Court                 2
+343 David Camp Suite 433          2
+
+--- City ---
+City
+Chicago          21109
+Portsmouth       19648
+San Francisco    11938
+Frankfurt         9947
+Boston            9187
+New York          5321
+Fort Worth        5090
+London            4345
+Winnipeg          2355
+Birmingham        2313
+
+--- State ---
+State
+England            61398
+Berlin             51433
+New South Wales    44170
+Ontario            44110
+Connecticut        21120
+Maine              11953
+Georgia             9278
+Kansas              5375
+New Mexico          5077
+New York             970
+
+--- Zipcode ---
+Zipcode
+68029.0    22
+2891.0     20
+2826.0     20
+68023.0    19
+68005.0    19
+2899.0     19
+68069.0    19
+68041.0    18
+68095.0    18
+68101.0    18
+
+--- Country ---
+Country
+USA          92800
+UK           61398
+Germany      51433
+Australia    44170
+Canada       44110
+
+--- Age ---
+Age
+20.0    33715
+46.0    29841
+26.0    24118
+22.0    22421
+34.0    20162
+23.0    17611
+19.0    16447
+21.0     7861
+24.0     6027
+55.0     5317
+
+--- Gender ---
+Gender
+Male      182764
+Female    111147
+
+--- Income ---
+Income
+Medium    126895
+Low        93673
+High       73343
+
+--- Customer_Segment ---
+Customer_Segment
+Regular    142550
+New         88764
+Premium     62597
+
+--- Date ---
+Date
+11/22/2023    888
+2/22/2024     877
+7/30/2023     877
+7/31/2023     876
+12/25/2023    876
+12/28/2023    873
+07-01-23      873
+01-12-24      872
+2/21/2024     867
+09-02-23      863
+
+--- Year ---
+Year
+2023.0    245379
+2024.0     48532
+
+--- Month ---
+Month
+April        40209
+January      36422
+August       32116
+July         30059
+May          27593
+March        18653
+October      18638
+December     18453
+September    18163
+November     17919
+
+--- Time ---
+Time
+2:16:01     14
+7:45:07     14
+15:54:27    14
+19:04:26    13
+18:10:53    13
+2:18:09     13
+22:28:22    13
+1:17:32     13
+2:55:36     13
+16:13:01    12
+
+--- Total_Purchases ---
+Total_Purchases
+5.0     31112
+2.0     31084
+3.0     31070
+1.0     31050
+4.0     30795
+8.0     27966
+6.0     27767
+9.0     27757
+7.0     27696
+10.0    27614
+
+--- Amount ---
+Amount
+102.821289    2
+273.083174    2
+281.045599    2
+423.674312    2
+124.613105    2
+292.124221    2
+67.937956     2
+413.272124    2
+170.999503    2
+200.080948    2
+
+--- Total_Amount ---
+Total_Amount
+3293.774760    2
+475.511100     2
+876.203338     2
+2248.364795    2
+1694.697247    2
+373.839316     2
+876.372662     2
+67.937956      2
+1200.485690    2
+1239.816372    2
+
+--- Product_Category ---
+Product_Category
+Electronics    69365
+Grocery        65126
+Clothing       53282
+Books          53199
+Home Decor     52939
+
+--- Product_Brand ---
+Product_Brand
+Pepsi                29538
+Coca-Cola            17951
+HarperCollins        17901
+Zara                 17876
+Samsung              17866
+Sony                 17848
+Adidas               17760
+Bed Bath & Beyond    17746
+Home Depot           17673
+Random House         17671
+
+--- Product_Type ---
+Product_Type
+Water          23838
+Smartphone     17929
+Non-Fiction    17672
+Fiction        17544
+Juice          11919
+Television     11874
+T-shirt        11871
+Decorations    11835
+Shoes          11808
+Tablet         11754
+
+--- Feedback ---
+Feedback
+Excellent    98016
+Good         92696
+Average      61019
+Bad          42180
+
+--- Shipping_Method ---
+Shipping_Method
+Same-Day    101541
+Express      99600
+Standard     92770
+
+--- Payment_Method ---
+Payment_Method
+Credit Card    87781
+Debit Card     74744
+Cash           71927
+PayPal         59459
+
+--- Order_Status ---
+Order_Status
+Delivered     127238
+Shipped        63275
+Processing     55655
+Pending        47743
+
+--- Ratings ---
+Ratings
+4.0    95459
+2.0    61019
+5.0    48811
+3.0    46442
+1.0    42180
+
+--- products ---
+products
+Spring water       2441
+Bottled water      2428
+Mystery            2426
+Alkaline water     2412
+Artesian water     2410
+Distilled water    2409
+Adventure          2372
+Flavored water     2366
+Coconut water      2366
+Mineral water      2361
+

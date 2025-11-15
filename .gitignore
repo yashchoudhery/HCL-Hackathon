@@ -1,0 +1,4 @@
+# Ignore dataset folder
+Dataset/
+Dataset/*
+**/Dataset/*

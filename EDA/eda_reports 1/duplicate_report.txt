@@ -1,0 +1,1 @@
+{'duplicate_summary': {'total_duplicate_rows': np.int64(0)}, 'txn_check': {'transaction_id': {'present': False}, 'txn_id': {'present': False}, 'invoice_no': {'present': False}, 'invoice_number': {'present': False}, 'order_id': {'present': False}, 'bill_no': {'present': False}, 'receipt_no': {'present': False}}}

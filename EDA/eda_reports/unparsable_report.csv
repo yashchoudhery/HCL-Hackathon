@@ -1,0 +1,31 @@
+column,non_null_count,unparsable_count,unparsable_pct,detected_type,sample_unparsable_values
+products,293911,293911,100.0,date-like,Cycling shorts | Lenovo Tab | Sports equipment | Utility knife | Chocolate cookies | QLED TV | Dress shirt | Dark chocolate | Candles | Screwdriver set
+Address,293911,293911,100.0,date-like,3959 Amanda Burgs | 82072 Dawn Centers | 4133 Young Canyon | 8148 Thomas Creek Suite 100 | 5813 Lori Ports Suite 269 | 532 Ashley Crest Suite 014 | 600 Brian Prairie Suite 497 | 237 Young Curve | 8823 Mariah Heights Apt. 263 | 6225 William Lodge
+Product_Category,293911,293911,100.0,date-like,Clothing | Electronics | Books | Home Decor | Grocery
+Product_Type,293911,293911,100.0,date-like,Shorts | Tablet | Children's | Tools | Chocolate | Television | Shirt | Decorations | Non-Fiction | Water
+Shipping_Method,293911,293911,100.0,date-like,Same-Day | Standard | Express
+Month,293911,293911,100.0,date-like,September | December | April | May | January | June | March | October | July | November
+Email,293911,293911,100.0,date-like,Ebony39@gmail.com | Mark36@gmail.com | Shane85@gmail.com | Mary34@gmail.com | Charles30@gmail.com | Haley12@gmail.com | Arthur76@gmail.com | Tanya94@gmail.com | Martin39@gmail.com | Jessica33@gmail.com
+Date,293911,115706,39.3677,date-like,05-08-23 | 01-10-24 | 01-06-24 | 10-04-23 | 01-02-24 | 05-07-23 | 07-01-23 | 02-07-24 | 08-06-23 | 02-03-24
+Payment_Method,293911,0,0.0,text,
+Order_Status,293911,0,0.0,text,
+Time,293911,0,0.0,date-like,
+Product_Brand,293911,0,0.0,text,
+Ratings,293911,0,0.0,numeric-like,
+Total_Amount,293911,0,0.0,numeric-like,
+Amount,293911,0,0.0,numeric-like,
+Total_Purchases,293911,0,0.0,numeric-like,
+Feedback,293911,0,0.0,text,
+Transaction_ID,293911,0,0.0,numeric-like,
+Customer_ID,293911,0,0.0,numeric-like,
+Customer_Segment,293911,0,0.0,text,
+Income,293911,0,0.0,text,
+Gender,293911,0,0.0,text,
+Age,293911,0,0.0,numeric-like,
+Country,293911,0,0.0,text,
+Zipcode,293911,0,0.0,numeric-like,
+State,293911,0,0.0,text,
+City,293911,0,0.0,text,
+Phone,293911,0,0.0,numeric-like,
+Name,293911,0,0.0,text,
+Year,293911,0,0.0,numeric-like,
