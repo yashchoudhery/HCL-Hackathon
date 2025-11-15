@@ -268,6 +268,90 @@ Based on EDA findings:
 
 ---
 
+## ✅ Data Quality Guarantees
+
+### **Good CSV Guarantees**
+- ✓ Zero missing values
+- ✓ Zero duplicates
+- ✓ All dates in standard format (YYYY-MM-DD)
+- ✓ All times in standard format (HH:MM:SS)
+- ✓ All numeric fields validated
+- ✓ No negative values in financial/quantity fields
+- ✓ No zero values in critical business fields
+- ✓ Text fields cleaned and normalized
+
+### **Bad CSV Features**
+- ✓ Original data preserved
+- ✓ Detailed error descriptions per row
+- ✓ Multiple issues per row documented
+- ✓ Ready for manual review/correction
+
+---
+
+## 📝 Transformation Logic Examples
+
+### **Date Transformation**
+Input: "05-08-23", "01-10-24", "9/18/2023"
+Output: "2023-05-08", "2024-01-10", "2023-09-18"
+Format: YYYY-MM-DD (ISO 8601)
+
+### **Time Transformation**
+Input: "8:42:04", "22:03:55", "4:06:29"
+Output: time(8, 42, 4), time(22, 3, 55), time(4, 6, 29)
+Format: HH:MM:SS (Python time objects)
+
+### **Phone Number Standardization**
+Input: "(123) 456-7890", "123-456-7890", "1234567890"
+Output: "1234567890", "1234567890", "1234567890"
+Format: Digits only, minimum 10 digits
+
+### **Text Cleaning**
+Input: " John Doe ", " ", ""
+Output: "John Doe", NaN, NaN
+Logic: Strip whitespace, collapse multiple spaces, empty → NULL
+
+
+---
+
+## 🔍 Error Handling
+
+### **Error Categories**
+
+**Type 1: Invalid Format** - Data cannot be parsed/converted
+- Example: Date "abc123", Phone "invalid"
+- Action: Row → bad CSV with "Invalid [column]" error
+
+**Type 2: Missing Data** - Required field is empty
+- Example: NULL in any column
+- Action: Row → bad CSV with "Missing values" error
+
+**Type 3: Business Rule Violation** - Data fails validation
+- Example: Price = 0, Amount = -100
+- Action: Row → bad CSV with "Zero [column]" or "Negative [column]" error
+
+**Type 4: Duplicate** - Exact duplicate record
+- Example: Transaction already exists
+- Action: Row → bad CSV with "Duplicate" error
+
+---
+
+## 🎯 Use Cases for Cleaned Data
+
+### **Good CSV - Recommended Uses**
+1. Machine learning model training
+2. Statistical analysis and reporting
+3. Data warehousing and BI dashboards
+4. Customer segmentation analysis
+5. Sales forecasting models
+6. Product recommendation systems
+
+### **Bad CSV - Recommended Actions**
+1. Manual data correction
+2. Contact data providers for clarification
+3. Identify systemic data entry errors
+4. Improve upstream data capture processes
+5. Train data entry staff on common errors
+
 ## 🛠️ Methodology
 
 - **Tools:** Python, Pandas, NumPy, Matplotlib, Seaborn
